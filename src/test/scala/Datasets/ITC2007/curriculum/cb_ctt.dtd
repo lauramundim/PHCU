@@ -1,0 +1,35 @@
+<!ELEMENT instance (descriptor, courses, rooms, curricula, constraints)>
+<!ATTLIST instance name CDATA #REQUIRED>
+  <!ELEMENT descriptor (days, periods_per_day, daily_lectures)>
+    <!ELEMENT days EMPTY>
+      <!ATTLIST days value CDATA #REQUIRED>
+    <!ELEMENT periods_per_day EMPTY>
+      <!ATTLIST periods_per_day value CDATA #REQUIRED>
+    <!ELEMENT daily_lectures EMPTY>
+      <!ATTLIST daily_lectures min CDATA #REQUIRED
+		max CDATA #REQUIRED>
+  <!ELEMENT courses (course+)>
+    <!ELEMENT course EMPTY>
+      <!ATTLIST course id ID #IMPLIED 
+		teacher CDATA #IMPLIED
+		lectures CDATA #IMPLIED
+		min_days CDATA #IMPLIED 
+		students CDATA #IMPLIED
+		double_lectures (yes | no) #IMPLIED
+		ref IDREF #IMPLIED> 
+  <!ELEMENT rooms (room+)>
+    <!ELEMENT room EMPTY>
+      <!ATTLIST room id ID #IMPLIED
+		size CDATA #IMPLIED
+		building CDATA #IMPLIED
+		ref IDREF #IMPLIED> 
+  <!ELEMENT curricula (curriculum+)>
+    <!ELEMENT curriculum (course+)>
+      <!ATTLIST curriculum id ID #REQUIRED>
+  <!ELEMENT constraints (constraint+)>
+    <!ELEMENT constraint (timeslot* | room*)>
+      <!ATTLIST constraint type (period | room) #REQUIRED
+		course IDREF #REQUIRED>
+      <!ELEMENT timeslot EMPTY>
+        <!ATTLIST timeslot period CDATA #REQUIRED
+		  day CDATA #REQUIRED>

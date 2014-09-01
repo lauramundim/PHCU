@@ -1,0 +1,4 @@
+<p>
+<parametros tamPop="50" tamSel="2" pc="0.8" pm="0.5" semente="-239965617960281284" nMaxGeração="50000" tamTorneio="2" nFilhos="1" divisor="2" prob1="1.0" prob2="1.0" prob3="1.0" maxSteps="1000" limiteBL="300" maxStepsLS2="300" percentualLS2="0.2" alfa="0.2" beta="0.3" gama="0.2" tal="20" limiteExec="300" limiteBL2="300" nExecuções="1"/>
+</p>
+
